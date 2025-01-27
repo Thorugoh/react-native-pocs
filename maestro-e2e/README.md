@@ -12,3 +12,6 @@ Install maestro: https://maestro.mobile.dev/getting-started/installing-maestro
 if we run using `npm start` and then pressin `a` the app will be within expo
 which will cause maestro to do not find the package name for the app.
 
+# Running tests
+
+`maestro test flow.yaml`

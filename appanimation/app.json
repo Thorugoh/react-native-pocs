@@ -2,6 +2,22 @@
   "expo": {
     "name": "appanimation",
     "slug": "appanimation",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "plugins": [
+      [
+        "expo-custom-assets",
+        {
+          "assetsPaths": [
+            "./src/resources/"
+          ]
+        }
+      ]
+    ],
+    "android": {
+      "package": "com.thorugoh.appanimation"
+    },
+    "ios": {
+      "bundleIdentifier": "com.thorugoh.appanimation"
+    }
   }
 }

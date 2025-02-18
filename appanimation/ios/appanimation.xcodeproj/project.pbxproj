@@ -14,6 +14,8 @@
 		96905EF65AED1B983A6B3ABC /* libPods-appanimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58EEBF8E8E6FB1BC6CAF49B5 /* libPods-appanimation.a */; };
 		B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
+		31FC918C5F4545458646BDBE /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C6B21D19247189EC836BD /* noop-file.swift */; };
+		9F8ADC62C87D434291C5B9A9 /* password_input.riv in Resources */ = {isa = PBXBuildFile; fileRef = 889F7CE0765347259749FD07 /* password_input.riv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,9 @@
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-appanimation/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		927C6B21D19247189EC836BD /* noop-file.swift */ = {isa = PBXFileReference; name = "noop-file.swift"; path = "appanimation/noop-file.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
+		05DFB80B95DE4F6EA88A0320 /* appanimation-Bridging-Header.h */ = {isa = PBXFileReference; name = "appanimation-Bridging-Header.h"; path = "appanimation/appanimation-Bridging-Header.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		889F7CE0765347259749FD07 /* password_input.riv */ = {isa = PBXFileReference; name = "password_input.riv"; path = "/Users/vhugo/repos/react-native-pocs/appanimation/ios/Assets/password_input.riv"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +59,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
+				927C6B21D19247189EC836BD /* noop-file.swift */,
+				05DFB80B95DE4F6EA88A0320 /* appanimation-Bridging-Header.h */,
 			);
 			name = appanimation;
 			sourceTree = "<group>";
@@ -83,6 +90,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				D65327D7A22EEC0BE12398D9 /* Pods */,
 				D7E4C46ADA2E9064B798F356 /* ExpoModulesProviders */,
+				889F7CE0765347259749FD07 /* password_input.riv */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -193,6 +201,8 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
+				242DB4124FF84B7C941EE1B2 /* appanimation-Bridging-Header.h in Resources */,
+				9F8ADC62C87D434291C5B9A9 /* password_input.riv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +278,7 @@
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */,
+				31FC918C5F4545458646BDBE /* noop-file.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,11 +306,14 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.name.appanimation;
-				PRODUCT_NAME = appanimation;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thorugoh.appanimation";
+				PRODUCT_NAME = "appanimation";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
+				TARGETED_DEVICE_FAMILY = "1";
+				SWIFT_OBJC_BRIDGING_HEADER = appanimation/appanimation-Bridging-Header.h;
+				CODE_SIGN_ENTITLEMENTS = appanimation/appanimation.entitlements;
 			};
 			name = Debug;
 		};
@@ -319,10 +333,13 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.name.appanimation;
-				PRODUCT_NAME = appanimation;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thorugoh.appanimation";
+				PRODUCT_NAME = "appanimation";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
+				TARGETED_DEVICE_FAMILY = "1";
+				SWIFT_OBJC_BRIDGING_HEADER = appanimation/appanimation-Bridging-Header.h;
+				CODE_SIGN_ENTITLEMENTS = appanimation/appanimation.entitlements;
 			};
 			name = Release;
 		};

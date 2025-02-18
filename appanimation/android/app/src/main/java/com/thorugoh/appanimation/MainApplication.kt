@@ -1,4 +1,4 @@
-package com.appanimation
+package com.thorugoh.appanimation
 
 import android.app.Application
 import android.content.res.Configuration

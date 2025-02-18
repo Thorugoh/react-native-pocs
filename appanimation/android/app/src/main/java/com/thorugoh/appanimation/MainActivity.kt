@@ -1,4 +1,4 @@
-package com.appanimation
+package com.thorugoh.appanimation
 
 import android.os.Build
 import android.os.Bundle

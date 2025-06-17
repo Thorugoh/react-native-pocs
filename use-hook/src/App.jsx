@@ -1,18 +1,16 @@
-import { useState, Suspense, use } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Suspense } from 'react'
 import './App.css'
 import { ErrorBoundary } from './ErrorBoundary'
-// import { use } from './use'
+import { use } from './use'
 
 const getPokemon = async (name) => {
   const reponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
-  return reponse
+  return reponse.json()
 }
 
-const PokemonDetails = () => {
-  const pokemon = use(() => getPokemon("ditto"))
-  
+const PokemonDetails = ({getPokemon}) => {
+  const pokemon = use(getPokemon)
+
   return(
     <div>
       <img src={pokemon.sprites.front_default} alt={pokemon.name} />
@@ -35,13 +33,15 @@ const PokemonError = () => {
 }
 
 function App() {
+  const pokemonPromise = getPokemon("ditto");
+
   return (
     <div className='app-wrapper'>
       <div className='app'>
         <div className='details'>
           <ErrorBoundary fallback={<PokemonError />}>
             <Suspense fallback={<PokemonFallback />}>
-              <PokemonDetails />
+              <PokemonDetails getPokemon={pokemonPromise} />
             </Suspense>
           </ErrorBoundary>
         </div>

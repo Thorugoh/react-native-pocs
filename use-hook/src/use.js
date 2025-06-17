@@ -3,8 +3,6 @@ export const use = (promise) => {
         return promise.value
     } else if (promise.status === 'rejected') {
         throw promise.reason
-    } else if (promise.status === 'pending') {
-        throw promise
     } else {
         promise.status = "pending"
         promise.then(

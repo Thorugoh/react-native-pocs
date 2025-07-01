@@ -1,4 +1,5 @@
 import { type SQLiteDatabase} from "expo-sqlite"
+import { seed } from "./seed";
 
 export async function databaseInit(database: SQLiteDatabase){
     const result = await database.getFirstAsync<Product>(`
@@ -13,6 +14,8 @@ export async function databaseInit(database: SQLiteDatabase){
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 name TEXT NOT NULL
             );
-            `)
+        `)
+
+        await seed(database);
     }
 }

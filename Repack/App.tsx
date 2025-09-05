@@ -25,21 +25,21 @@ ScriptManager.shared.addResolver(async (scriptId, caller) => {
   }
 })
 
-const TeacherModule = React.lazy(() => import('./TeacherModule'));
+const TeacherModule = React.lazy(() =>  import('./TeacherModule'));
 const StudentModule = React.lazy(() => import('./StudentModule'));
 
 function App({ role }: {role: string}): React.JSX.Element {
   if(role === "teacher") {
     return (
       <React.Suspense fallback={<Text>Loading...</Text>}>
-        <TeacherModule />
+        <TeacherModule user={{name: "Victor"}} />
       </React.Suspense>
     );
   }
 
   return (
     <React.Suspense fallback={<Text>Loading...</Text>}>
-      <StudentModule />
+      <StudentModule user={{name: "Hugo"}} />
     </React.Suspense>
   );
 }

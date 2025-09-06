@@ -6,13 +6,15 @@
  */
 
 import React from 'react';
-import { Script, ScriptManager } from '@callstack/repack/client';
 import {
   StyleSheet,
   Text,
 } from 'react-native';
+import { Script, ScriptManager } from '@callstack/repack/client';
 
-ScriptManager.shared.addResolver(async (scriptId, caller) => {
+
+ScriptManager.shared?.addResolver(async (scriptId, caller) => {
+
   if(__DEV__) {
     return {
       url: Script.getDevServerURL(scriptId),
@@ -25,10 +27,12 @@ ScriptManager.shared.addResolver(async (scriptId, caller) => {
   }
 })
 
+
 const TeacherModule = React.lazy(() =>  import('./TeacherModule'));
 const StudentModule = React.lazy(() => import('./StudentModule'));
 
 function App({ role }: {role: string}): React.JSX.Element {
+
   if(role === "teacher") {
     return (
       <React.Suspense fallback={<Text>Loading...</Text>}>

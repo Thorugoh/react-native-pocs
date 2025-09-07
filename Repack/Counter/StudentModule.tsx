@@ -2,7 +2,7 @@
 import * as React from "react";
 import { View, Text } from "react-native";
 
-export default function StudentSide({ user }) {
+export default function StudentModule({ user }) {
   return (
     <View style={{ flex: 1 }}>
       <Text>Hello {user.name}!</Text>

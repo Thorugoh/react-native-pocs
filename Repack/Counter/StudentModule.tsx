@@ -1,8 +1,15 @@
 // StudentSide.js
-import * as React from "react";
-import { View, Text } from "react-native";
+import { Text, View } from "react-native";
 
-export default function StudentModule({ user }) {
+export interface User {
+  name: string;
+}
+
+interface StudentModuleProps {
+  user: User;
+}
+
+export default function StudentModule({ user }: StudentModuleProps) {
   return (
     <View style={{ flex: 1 }}>
       <Text>Hello {user.name}!</Text>

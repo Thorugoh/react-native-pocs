@@ -1,15 +1,10 @@
-import { StatusBar, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-} from 'react-native-safe-area-context';
+import { View } from 'react-native';
 import StudentModule from './StudentModule';
 
 function App() {
-  const isDarkMode = useColorScheme() === 'dark';
-
   return (
     <View>
-      <StudentModule />
+      <StudentModule user={{ name: 'John Doe' }} />
     </View>
   );
 }

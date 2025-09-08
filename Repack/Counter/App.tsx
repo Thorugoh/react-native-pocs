@@ -3,7 +3,7 @@ import StudentModule from './StudentModule';
 
 function App() {
   return (
-    <View>
+    <View style={{ flex: 1, marginTop: 100, justifyContent: 'center', alignItems: 'center' }}>
       <StudentModule user={{ name: 'John Doe' }} />
     </View>
   );

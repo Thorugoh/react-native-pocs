@@ -5,6 +5,8 @@ import * as Repack from '@callstack/repack';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+import pkg from './package.json' with { type: 'json' };
+
 /**
  * Rspack configuration enhanced with Re.Pack defaults for React Native.
  *
@@ -32,5 +34,21 @@ export default Repack.defineRspackConfig({
       ...Repack.getAssetTransformRules(),
     ],
   },
-  plugins: [new Repack.RepackPlugin()],
+  plugins: [
+    new Repack.RepackPlugin(),
+    new Repack.plugins.ModuleFederationPluginV2({
+      name: "Host",
+      filename: "Host.container.js.bundle",
+      dts: false,
+      remotes: {
+        StudentModule: "StudentModule@http://localhost:9000/ios/StudentModule.container.js.bundle",
+      },
+      shared: Object.fromEntries(
+        Object.entries(pkg.dependencies).map(([name, { version }]) => [
+          name,
+          { singleton: true, eager: true, requiredVersion: version },
+        ])
+      )
+    })
+  ],
 });

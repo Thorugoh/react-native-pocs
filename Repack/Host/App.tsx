@@ -9,6 +9,7 @@ import React from 'react';
 import {
   StyleSheet,
   Text,
+  View,
 } from 'react-native';
 import { Script, ScriptManager } from '@callstack/repack/client';
 
@@ -28,29 +29,27 @@ ScriptManager.shared?.addResolver(async (scriptId, caller) => {
 })
 
 
-const TeacherModule = React.lazy(() => import('./TeacherModule'));
-const StudentModule = React.lazy(() => import('./StudentModule'));
+const StudentModule = React.lazy(() => import('StudentModule/StudentModule'));
 
-function App({ role }: {role: string}): React.JSX.Element {
-
-  if(role === "teacher") {
-    return (
-      <React.Suspense fallback={<Text>Loading...</Text>}>
-        <TeacherModule user={{name: "Victor"}} />
-      </React.Suspense>
-    );
-  }
+function App(): React.JSX.Element {
 
   return (
-    <React.Suspense fallback={<Text>Loading...</Text>}>
-      <StudentModule user={{name: "Hugo"}} />
-    </React.Suspense>
+    <View style={styles.sectionContainer}>
+        <React.Suspense fallback={<Text>Loading remote module...</Text>}>
+          <StudentModule user={{ name: "Test" }} />
+        </React.Suspense>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   sectionContainer: {
-    marginTop: 32,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: "100%",
+    width: "100%",
+    marginTop: 100,
     paddingHorizontal: 24,
   },
   sectionTitle: {

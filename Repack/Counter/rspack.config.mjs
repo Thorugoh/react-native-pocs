@@ -37,13 +37,13 @@ export default Repack.defineRspackConfig({
     new Repack.RepackPlugin(),
     new Repack.plugins.ModuleFederationPluginV2({
       name: "StudentModule",
-      filename: "Student.container.js.bundle",
+      filename: "StudentModule.container.js.bundle",
       dts: false,
       exposes: {
-        './StudentModule': './StudentModule.tsx',
+        './StudentModule': './StudentModule',
       },
       shared: Object.fromEntries(
-        Object.entries(pkg.dependencies).map(([name, version]) => [
+        Object.entries(pkg.dependencies).map(([name, { version }]) => [
           name,
           { singleton: true, eager: true, requiredVersion: version },
         ])

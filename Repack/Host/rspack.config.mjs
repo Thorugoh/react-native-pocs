@@ -36,19 +36,5 @@ export default Repack.defineRspackConfig({
   },
   plugins: [
     new Repack.RepackPlugin(),
-    new Repack.plugins.ModuleFederationPluginV2({
-      name: "Host",
-      filename: "Host.container.js.bundle",
-      dts: false,
-      remotes: {
-        StudentModule: "StudentModule@http://localhost:9000/ios/StudentModule.container.js.bundle",
-      },
-      shared: Object.fromEntries(
-        Object.entries(pkg.dependencies).map(([name, { version }]) => [
-          name,
-          { singleton: true, eager: true, requiredVersion: version },
-        ])
-      )
-    })
   ],
 });

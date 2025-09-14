@@ -29,7 +29,7 @@ ScriptManager.shared?.addResolver(async (scriptId, caller) => {
 })
 
 
-const StudentModule = React.lazy(() => import('StudentModule/StudentModule'));
+const StudentModule = React.lazy(() => import("./StudentModule"));
 
 function App(): React.JSX.Element {
 

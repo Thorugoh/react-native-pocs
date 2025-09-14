@@ -24,7 +24,7 @@ ScriptManager.shared?.addResolver(async (scriptId, caller) => {
   }
 
   return {
-    url: Script.getRemoteURL(`https://mycdn.example/assets/${scriptId}`)
+    url: Script.getRemoteURL(`http://localhost:8080/scripts/${scriptId}`)
   }
 })
 

@@ -1,4 +1,7 @@
 {
   "name": "ExpoModules",
-  "displayName": "ExpoModules"
+  "displayName": "ExpoModules",
+  "plugins": [
+    "expo-asset"
+  ]
 }
